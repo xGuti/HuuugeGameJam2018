@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4701479676451356}
   - component: {fileID: 212241846707824690}
   - component: {fileID: 61673258041477246}
+  - component: {fileID: 114936589713486582}
   m_Layer: 0
   m_Name: CashDesk
   m_TagString: Untagged
@@ -35,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1703243900965920}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: 0}
+  m_LocalPosition: {x: 3, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -66,6 +67,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 1.5}
   m_EdgeRadius: 0
+--- !u!114 &114936589713486582
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1703243900965920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f1bea1b50b16c14db47948539442039, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fastOption: {fileID: 1553118456245418, guid: cdef80f2f1573fc4daa0a01bb0f7a5ab, type: 2}
+  slowOption: {fileID: 1235426278320352, guid: 50f4d08352b57634a8b8fc3bea28181f, type: 2}
 --- !u!212 &212241846707824690
 SpriteRenderer:
   m_ObjectHideFlags: 1

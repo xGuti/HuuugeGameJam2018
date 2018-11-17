@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ICameraController : MonoBehaviour
-{
+public class HostageController : MonoBehaviour {
 
-    private bool iCameraTrigger;
+    private bool hostageTrigger;
     private bool used;
 
     //public GameObject gameController;
@@ -17,17 +16,17 @@ public class ICameraController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        iCameraTrigger = false;
+        hostageTrigger = false;
         used = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (iCameraTrigger == true && used==false)
+        if (hostageTrigger == true&&used==false)
         {
-            
-  
+
+
             if (Input.GetKeyDown(KeyCode.Z))
             {
                 // fast reaction
@@ -52,7 +51,7 @@ public class ICameraController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        iCameraTrigger = true;
+        hostageTrigger = true;
         if (used == false)
         {
             Instantiate(fastOption, new Vector2(this.gameObject.transform.position.x - this.gameObject.GetComponent<SpriteRenderer>().bounds.size.x / 2,
@@ -67,9 +66,9 @@ public class ICameraController : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         Debug.Log("exited");
-        iCameraTrigger = false;
         if (used == false)
         {
+            hostageTrigger = false;
             Destroy(GameObject.Find("FastOption(Clone)"));
             Destroy(GameObject.Find("SlowOption(Clone)"));
         }

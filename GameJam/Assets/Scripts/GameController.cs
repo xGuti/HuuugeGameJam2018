@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour {
 
-    private int police;
-    private int panic;
-    private int money;
+    public int police;
+    public int panic;
+    public int money;
+
+    public bool ICameraTrigger;
 
 	// Use this for initialization
 	void Start () {
@@ -20,16 +22,4 @@ public class GameController : MonoBehaviour {
 		
 	}
 
-    public void AddPolice(int point)
-    {
-        police += point;
-    }
-    public void AddPanic(int point)
-    {
-        panic += point;
-    }
-    public void AddMoney(int point)
-    {
-        money += point;
-    }
 }
