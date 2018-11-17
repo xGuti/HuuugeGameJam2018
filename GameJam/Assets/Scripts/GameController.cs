@@ -7,6 +7,7 @@ public class GameController : MonoBehaviour
     public static GameController instance = null;
     private int money;
     private BarController barController;
+    private TimeController timeController;
 
     // Use this for initialization
     void Awake()
@@ -27,6 +28,8 @@ public class GameController : MonoBehaviour
 
         //Get a component reference to the attached BoardManager script
         barController = GameObject.Find("BarController").GetComponent<BarController>();
+
+        timeController = GameObject.Find("TimeController").GetComponent<TimeController>();
 
     }
     void Start()
