@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Timers;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,16 +12,26 @@ public class BarController : MonoBehaviour
     public Slider panicBar;
     public Slider policBar;
 
-    GameObject barPanic;
+    Timer timer;
 
-    public BarController(float policyValue, float panicValue)
+
+    void Start()
     {
-        this.policValue = policyValue;
-        this.panicValue = panicValue;
-
+        PanicValue = 0.5F;
+        PolicValue = 0.5F;
+        timer = new Timer();
+        timer.Interval = 1000;
+        timer.Elapsed += new ElapsedEventHandler(OnTimerElapsed);
+        timer.Start();
     }
 
-    public float PanicVaue
+    private void OnTimerElapsed(object source, ElapsedEventArgs e)
+    {
+        PanicValue += 0.01F;
+        PolicValue += 0.01F;
+    }
+
+    public float PanicValue
     {
         get { return panicValue; }
         set
@@ -40,7 +51,8 @@ public class BarController : MonoBehaviour
         }
     }
 
-    public void addPolicy(float value) {
+    public void addPolicy(float value)
+    {
 
         float tempValue = PolicValue;
 
@@ -50,13 +62,15 @@ public class BarController : MonoBehaviour
         {
             PolicValue = 1;
         }
-        else {
+        else
+        {
             PolicValue = tempValue;
         }
 
     }
 
-    public void decreasePolic(float value) {
+    public void decreasePolic(float value)
+    {
 
         float tempValue = PolicValue;
 
@@ -73,18 +87,19 @@ public class BarController : MonoBehaviour
 
     }
 
-    public void addPanic(float value) {
-        float tempValue = PanicVaue;
+    public void addPanic(float value)
+    {
+        float tempValue = PanicValue;
 
         tempValue += value;
 
         if (tempValue >= 1)
         {
-            PanicVaue = 1;
+            PanicValue = 1;
         }
         else
         {
-            PanicVaue = tempValue;
+            PanicValue = tempValue;
         }
 
     }
@@ -92,29 +107,27 @@ public class BarController : MonoBehaviour
     public void decreasePanic(float value)
     {
 
-        float tempValue = PanicVaue;
+        float tempValue = PanicValue;
 
         tempValue -= value;
 
         if (tempValue <= 0)
         {
-            PanicVaue = 0;
+            PanicValue = 0;
         }
         else
         {
-            PanicVaue = tempValue;
+            PanicValue = tempValue;
         }
 
     }
 
     void Update()
     {
-        PanicVaue += 0.01F;
-        PolicValue += 0.01F;
-
-        panicBar.value = PanicVaue;
+        Console.WriteLine(PanicValue.ToString());
+        //Debug.Log(PanicValue.ToString());
+        panicBar.value = PanicValue;
         policBar.value = PolicValue;
-
 
     }
 

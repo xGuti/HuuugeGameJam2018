@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4137545621541404}
   - component: {fileID: 212509047488710604}
   - component: {fileID: 61473676576655782}
+  - component: {fileID: 114979952161829536}
   m_Layer: 0
   m_Name: Safe
   m_TagString: Untagged
@@ -35,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1056553313486522}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3, z: 0}
+  m_LocalPosition: {x: -3, y: -3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -66,6 +67,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 1.5}
   m_EdgeRadius: 0
+--- !u!114 &114979952161829536
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1056553313486522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63d09dbea65247d47ac8c89ac7564b34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fastOption: {fileID: 1553118456245418, guid: cdef80f2f1573fc4daa0a01bb0f7a5ab, type: 2}
+  slowOption: {fileID: 1235426278320352, guid: 50f4d08352b57634a8b8fc3bea28181f, type: 2}
+  progressBar: {fileID: 1248917270930702, guid: 11dc13cb8d6fa304787ae1d6394590b0,
+    type: 2}
 --- !u!212 &212509047488710604
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -2,34 +2,44 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameController : MonoBehaviour {
-
-    private int police;
-    private int panic;
+public class GameController : MonoBehaviour
+{
+    public static GameController instance = null;
     private int money;
+    private BarController barController;
+    private TimeController timeController;
 
-	// Use this for initialization
-	void Start () {
-        police = 50;
-        panic = 50;
-        money = 0;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    // Use this for initialization
+    void Awake()
+    {
+        if (instance == null)
 
-    public void AddPolice(int point)
-    {
-        police += point;
+            //if not, set instance to this
+            instance = this;
+
+        //If instance already exists and it's not this:
+        else if (instance != this)
+
+            //Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
+            Destroy(gameObject);
+
+        //Sets this to not be destroyed when reloading scene
+        DontDestroyOnLoad(gameObject);
+
+        //Get a component reference to the attached BoardManager script
+        barController = GameObject.Find("BarController").GetComponent<BarController>();
+
+        timeController = GameObject.Find("TimeController").GetComponent<TimeController>();
+
     }
-    public void AddPanic(int point)
+    void Start()
     {
-        panic += point;
     }
-    public void AddMoney(int point)
+
+    // Update is called once per frame
+    void Update()
     {
-        money += point;
+
     }
+
 }
