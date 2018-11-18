@@ -13,12 +13,8 @@ public class ObjectController : MonoBehaviour
 
     public GameObject fastOption;
     public GameObject slowOption;
-
-    //public Component script;
-    public enum script
-    {
-        ICameraController,SafeController,HostageController,CashDeskController
-    };
+    public GameObject progressBar;
+    public Component script;
 
     // Use this for initialization
     void Start()
@@ -32,21 +28,18 @@ public class ObjectController : MonoBehaviour
     {
         if (objectTrigger == true && used == false)
         {
-
-
             if (Input.GetKeyDown(KeyCode.Z))
             {
                 // fast reaction
-
+                
                 
 
                 Debug.Log("Fast Option Has Been Chosen");
                 Destroy(GameObject.Find("FastOption(Clone)"));
                 Destroy(GameObject.Find("SlowOption(Clone)"));
+                var pgbar = Instantiate(progressBar, transform.position, Quaternion.identity);
+                pgbar.transform.parent = gameObject.transform;
                 used = true;
-
-
-
             }
             else if (Input.GetKeyDown(KeyCode.X))
             {
@@ -55,6 +48,8 @@ public class ObjectController : MonoBehaviour
                 Debug.Log("Slow Option Has Been Chosen");
                 Destroy(GameObject.Find("FastOption(Clone)"));
                 Destroy(GameObject.Find("SlowOption(Clone)"));
+                var pgbar = Instantiate(progressBar, transform.position, Quaternion.identity);
+                pgbar.transform.parent = gameObject.transform;
                 used = true;
             }
 

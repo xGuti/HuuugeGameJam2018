@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4419936919061198}
   - component: {fileID: 212072642050476450}
   - component: {fileID: 61189703346827880}
-  - component: {fileID: 114320907078825000}
+  - component: {fileID: 114464248388052932}
   m_Layer: 0
   m_Name: ICamera
   m_TagString: Untagged
@@ -67,7 +67,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 1.5}
   m_EdgeRadius: 0
---- !u!114 &114320907078825000
+--- !u!114 &114464248388052932
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -75,11 +75,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1313137738589084}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe7ab754489b81f45a02d738ffd4ea95, type: 3}
+  m_Script: {fileID: 11500000, guid: 63d09dbea65247d47ac8c89ac7564b34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fastOption: {fileID: 1553118456245418, guid: cdef80f2f1573fc4daa0a01bb0f7a5ab, type: 2}
   slowOption: {fileID: 1235426278320352, guid: 50f4d08352b57634a8b8fc3bea28181f, type: 2}
+  progressBar: {fileID: 1248917270930702, guid: 11dc13cb8d6fa304787ae1d6394590b0,
+    type: 2}
 --- !u!212 &212072642050476450
 SpriteRenderer:
   m_ObjectHideFlags: 1
