@@ -51,47 +51,48 @@ public class ObjectController : MonoBehaviour
                 pgbar = Instantiate(progressBar, transform.position, Quaternion.identity) as GameObject;
                 pgbar.transform.parent = gameObject.transform;
 
-                switch (gameObject.tag)
+               /* switch (gameObject.tag)
                 {
                     case "ICamera":
-                        basicFastDuration = 5;
-                        policePoints = -0.3f;
-                        panicPoints = 0.3f;
+                        basicFastDuration = GameObject.Find("Gun").GetComponent<GunScript>().time;
+                        policePoints = GameObject.Find("Gun").GetComponent<GunScript>().police*(-1);
+                        panicPoints = GameObject.Find("Gun").GetComponent<GunScript>().panic;
 
                         pgbar.GetComponentInChildren<ProgressBarController>().policePoint = policePoints;
                         pgbar.GetComponentInChildren<ProgressBarController>().panicPoint = panicPoints;
-                        pgbar.GetComponentInChildren<ProgressBarController>().duration = basicFastDuration;
+                        pgbar.GetComponentInChildren<ProgressBarController>().time = basicFastDuration;
 
                         break;
                     case "Hostage":
-                        basicFastDuration = 5;
-                        policePoints = -0.3f;
-                        panicPoints = 0.3f;
+                        basicFastDuration = GameObject.Find("Gun").GetComponent<GunScript>().time;
+                        policePoints = GameObject.Find("Gun").GetComponent<GunScript>().police;
+                        panicPoints = GameObject.Find("Gun").GetComponent<GunScript>().panic*1.5f;
 
                         pgbar.GetComponentInChildren<ProgressBarController>().policePoint = policePoints;
                         pgbar.GetComponentInChildren<ProgressBarController>().panicPoint = panicPoints;
-                        pgbar.GetComponentInChildren<ProgressBarController>().duration = basicFastDuration;
+                        pgbar.GetComponentInChildren<ProgressBarController>().time = basicFastDuration;
                         break;
                     case "CashDesk":
-                        basicFastDuration = 5;
-                        policePoints = -0.3f;
-                        panicPoints = 0.3f;
-                        money = 5;
+                        basicFastDuration = GameObject.Find("Gun").GetComponent<GunScript>().time;
+                        policePoints = GameObject.Find("Gun").GetComponent<GunScript>().police;
+                        panicPoints = GameObject.Find("Gun").GetComponent<GunScript>().panic;
+                        money = GameObject.Find("Bag").GetComponent<BagScript>().money;
 
                         pgbar.GetComponentInChildren<ProgressBarController>().policePoint = policePoints;
                         pgbar.GetComponentInChildren<ProgressBarController>().panicPoint = panicPoints;
-                        pgbar.GetComponentInChildren<ProgressBarController>().duration = basicFastDuration;
+                        pgbar.GetComponentInChildren<ProgressBarController>().time = basicFastDuration;
+                        pgbar.GetComponentInChildren<ProgressBarController>().money = money;
                         break;
                     case "Safe":
-                        basicFastDuration = 5;
-                        policePoints = -0.3f;
-                        panicPoints = 0.3f;
+                        basicFastDuration = GameObject.Find("TNT").GetComponent<TNTScript>().time;
+                        policePoints = GameObject.Find("TNT").GetComponent<TNTScript>().police;
+                        panicPoints = GameObject.Find("TNT").GetComponent<TNTScript>().panic;
 
                         pgbar.GetComponentInChildren<ProgressBarController>().policePoint = policePoints;
                         pgbar.GetComponentInChildren<ProgressBarController>().panicPoint = panicPoints;
-                        pgbar.GetComponentInChildren<ProgressBarController>().duration = basicFastDuration;
+                        pgbar.GetComponentInChildren<ProgressBarController>().time = basicFastDuration;
                         break;
-                }
+                }*/
                 
 
 
@@ -108,7 +109,49 @@ public class ObjectController : MonoBehaviour
                 Destroy(GameObject.Find("SlowOption(Clone)"));
                 pgbar = Instantiate(progressBar, transform.position, Quaternion.identity);
                 pgbar.transform.parent = gameObject.transform;
-                pgbar.GetComponentInChildren<ProgressBarController>().duration = basicSlowDuration - playerTimeBonus;
+
+               /* switch (gameObject.tag)
+                {
+                    case "ICamera":
+                        basicFastDuration = GameObject.Find("Cameq").GetComponent<CamEqScript>().time;
+                        policePoints = GameObject.Find("Cameq").GetComponent<CamEqScript>().police;
+                        panicPoints = GameObject.Find("Cameq").GetComponent<CamEqScript>().panic;
+
+                        pgbar.GetComponentInChildren<ProgressBarController>().policePoint = policePoints;
+                        pgbar.GetComponentInChildren<ProgressBarController>().panicPoint = panicPoints;
+                        pgbar.GetComponentInChildren<ProgressBarController>().time = basicFastDuration;
+
+                        break;
+                    case "Hostage":
+                        basicFastDuration = GameObject.Find("Rope").GetComponent<RopeScript>().time;
+                        policePoints = GameObject.Find("Rope").GetComponent<RopeScript>().police;
+                        panicPoints = GameObject.Find("Rope").GetComponent<RopeScript>().police;
+
+                        pgbar.GetComponentInChildren<ProgressBarController>().policePoint = policePoints;
+                        pgbar.GetComponentInChildren<ProgressBarController>().panicPoint = panicPoints;
+                        pgbar.GetComponentInChildren<ProgressBarController>().time = basicFastDuration;
+                        break;
+                    case "CashDesk":
+                        basicFastDuration = GameObject.Find("Bag").GetComponent<BagScript>().time;
+                        policePoints = GameObject.Find("Bag").GetComponent<BagScript>().police;
+                        panicPoints = GameObject.Find("Bag").GetComponent<BagScript>().panic;
+                        money = GameObject.Find("Bag").GetComponent<BagScript>().money;
+
+                        pgbar.GetComponentInChildren<ProgressBarController>().policePoint = policePoints;
+                        pgbar.GetComponentInChildren<ProgressBarController>().panicPoint = panicPoints;
+                        pgbar.GetComponentInChildren<ProgressBarController>().time = basicFastDuration;
+                        pgbar.GetComponentInChildren<ProgressBarController>().money = money;
+                        break;
+                    case "Safe":
+                        basicFastDuration = GameObject.Find("Drill").GetComponent<DrillScript>().time;
+                        policePoints = GameObject.Find("Drill").GetComponent<DrillScript>().police;
+                        panicPoints = GameObject.Find("Drill").GetComponent<DrillScript>().panic;
+
+                        pgbar.GetComponentInChildren<ProgressBarController>().policePoint = policePoints;
+                        pgbar.GetComponentInChildren<ProgressBarController>().panicPoint = panicPoints;
+                        pgbar.GetComponentInChildren<ProgressBarController>().time = basicFastDuration;
+                        break;
+                }*/
 
                 used = true;
             }

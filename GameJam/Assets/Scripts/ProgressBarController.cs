@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public class ProgressBarController : MonoBehaviour {
 
-    public float duration;
+    public float time;
+
     public bool triggered;
     public bool stop=false;
     public bool release = false;
