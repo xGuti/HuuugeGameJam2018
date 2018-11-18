@@ -55,6 +55,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224965040493282482}
   - component: {fileID: 114804104337774054}
+  - component: {fileID: 114945052843757170}
   m_Layer: 5
   m_Name: PanicSlider
   m_TagString: Untagged
@@ -233,6 +234,22 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &114945052843757170
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1681275477142782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71a56ad0df8825d4b9e5aa3206fb9f38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0
+  triggered: 0
+  stop: 0
+  release: 0
+  progressBar: {fileID: 114804104337774054}
 --- !u!222 &222637076031435152
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -319,7 +336,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -1.58, y: 0.61}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224900075039654014
