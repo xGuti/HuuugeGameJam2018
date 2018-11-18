@@ -17,8 +17,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - FloorDarkGrey
+  - FloorDarkBlue
   - 
   - 
   - 
@@ -44,4 +44,19 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: DarkGreyFloor
+    uniqueID: 2125113931
+    locked: 0
+  - name: LightGreyFloor
+    uniqueID: 2319371961
+    locked: 0
+  - name: Player
+    uniqueID: 3007196037
+    locked: 0
+  - name: Collumn
+    uniqueID: 1195076347
+    locked: 0
+  - name: Door
+    uniqueID: 2597657295
     locked: 0
