@@ -9,6 +9,8 @@ public class GameController : MonoBehaviour
     private BarController barController;
     private TimeController timeController;
 
+   
+
     // Use this for initialization
     void Awake()
     {
@@ -31,9 +33,11 @@ public class GameController : MonoBehaviour
 
         timeController = GameObject.Find("TimeController").GetComponent<TimeController>();
 
+    
     }
     void Start()
     {
+
     }
 
     // Update is called once per frame

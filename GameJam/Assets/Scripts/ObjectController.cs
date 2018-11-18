@@ -17,6 +17,7 @@ public class ObjectController : MonoBehaviour
     private GameObject pgbar;
 
     public Component script;
+    public ParticleSystem smoke;
 
     private float basicFastDuration = 5;
     private float basicSlowDuration = 10;
@@ -111,6 +112,8 @@ public class ObjectController : MonoBehaviour
                 pgbar.GetComponentInChildren<ProgressBarController>().duration = basicSlowDuration - playerTimeBonus;
 
                 used = true;
+                smoke.Play();
+                
             }
 
         }
@@ -119,11 +122,13 @@ public class ObjectController : MonoBehaviour
         {
             pgbar.GetComponentInChildren<ProgressBarController>().triggered = false;
             pgbar.GetComponentInChildren<ProgressBarController>().stop = true;
+            GetComponentInChildren<ParticleSystem>().Stop();
         }
         else if (pgbar && objectTrigger == true && Input.GetKeyUp(KeyCode.X))
         {
             pgbar.GetComponentInChildren<ProgressBarController>().triggered = false;
             pgbar.GetComponentInChildren<ProgressBarController>().stop = true;
+            GetComponentInChildren<ParticleSystem>().Stop();
         }
 
         else if (pgbar && objectTrigger == true && Input.GetKeyDown(KeyCode.Z))
@@ -131,12 +136,14 @@ public class ObjectController : MonoBehaviour
             pgbar.GetComponentInChildren<ProgressBarController>().triggered = true;
             pgbar.GetComponentInChildren<ProgressBarController>().stop = false;
             pgbar.GetComponentInChildren<ProgressBarController>().release = true;
+            GetComponentInChildren<ParticleSystem>().Play();
         }
         else if (pgbar && objectTrigger == true && Input.GetKeyDown(KeyCode.X))
         {
             pgbar.GetComponentInChildren<ProgressBarController>().triggered = true;
             pgbar.GetComponentInChildren<ProgressBarController>().stop = false;
             pgbar.GetComponentInChildren<ProgressBarController>().release = true;
+            GetComponentInChildren<ParticleSystem>().Play();
         }
     }
 
@@ -151,6 +158,9 @@ public class ObjectController : MonoBehaviour
             Instantiate(slowOption, new Vector2(this.gameObject.transform.position.x + this.gameObject.GetComponent<SpriteRenderer>().bounds.size.x / 2,
                 this.gameObject.transform.position.y + this.gameObject.GetComponent<SpriteRenderer>().bounds.size.y), Quaternion.identity);
         }
+
+        //GetComponentInChildren<ParticleSystem>().Play();
+
 
     }
 
@@ -172,5 +182,7 @@ public class ObjectController : MonoBehaviour
             Destroy(GameObject.Find("FastOption(Clone)"));
             Destroy(GameObject.Find("SlowOption(Clone)"));
         }
+        GetComponentInChildren<ParticleSystem>().Pause();
+        GetComponentInChildren<ParticleSystem>().Clear();
     }
 }

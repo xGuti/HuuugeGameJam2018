@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
 
     private float speed = .1f;
+    //public Transform smoke;
 
     void FixedUpdate()
     {
@@ -15,12 +16,29 @@ public class Player : MonoBehaviour
             speed);
         GetComponent<Rigidbody2D>().MovePosition(p);
 
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            GetComponentInChildren<ParticleSystem>().Play();
+        }
+        if(Input.GetKeyUp(KeyCode.Space))
+        {
+            GetComponentInChildren<ParticleSystem>().Pause();
+            GetComponentInChildren<ParticleSystem>().Clear();
+        }
+
+        //smoke.GetComponent<ParticleSystem>().enableEmission = false;
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("colision");
+        //  Play effect when player hit the action key
+        //  if statement?
+       
+
     }
+
 
     private void OnTriggerExit2D(Collider2D collision)
     {
