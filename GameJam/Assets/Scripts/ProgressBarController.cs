@@ -61,7 +61,7 @@ public class ProgressBarController : MonoBehaviour
 
     private void OnTimerElapsed(object source, ElapsedEventArgs e)
     {
-        Debug.Log("asaddsa");
+        //Debug.Log("asaddsa");
         TimeValue += 1 / time;
     }
 

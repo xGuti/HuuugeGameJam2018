@@ -16,6 +16,9 @@ public class ObjectController : MonoBehaviour
     public GameObject progressBar;
     private GameObject pgbar;
 
+    public Sprite hostageTied;
+    public Sprite brokenCamera;
+
     public Component script;
 
     private float basicFastDuration = 5;
@@ -26,11 +29,14 @@ public class ObjectController : MonoBehaviour
     private float panicPoints;
     private int money;
 
+
+
     // Use this for initialization
     void Start()
     {
         objectTrigger = false;
         used = false;
+        //song.clip = song;
     }
 
     // Update is called once per frame
@@ -57,6 +63,7 @@ public class ObjectController : MonoBehaviour
                         basicFastDuration = GameObject.Find("Gun").GetComponent<GunScript>().time;
                         policePoints = GameObject.Find("Gun").GetComponent<GunScript>().police * (-1);
                         panicPoints = GameObject.Find("Gun").GetComponent<GunScript>().panic;
+                        gameObject.GetComponent<SpriteRenderer>().sprite = brokenCamera;
 
                         pgbar.GetComponentInChildren<ProgressBarController>().policePoint = policePoints;
                         pgbar.GetComponentInChildren<ProgressBarController>().panicPoint = panicPoints;
@@ -118,6 +125,7 @@ public class ObjectController : MonoBehaviour
                         basicFastDuration = GameObject.Find("Cameq").GetComponent<CamEqScript>().time;
                         policePoints = GameObject.Find("Cameq").GetComponent<CamEqScript>().police;
                         panicPoints = GameObject.Find("Cameq").GetComponent<CamEqScript>().panic;
+                        gameObject.GetComponent<SpriteRenderer>().sprite = brokenCamera;
 
                         pgbar.GetComponentInChildren<ProgressBarController>().policePoint = policePoints;
                         pgbar.GetComponentInChildren<ProgressBarController>().panicPoint = panicPoints;
@@ -127,7 +135,8 @@ public class ObjectController : MonoBehaviour
                     case "Hostage":
                         basicFastDuration = GameObject.Find("Rope").GetComponent<RopeScript>().time;
                         policePoints = GameObject.Find("Rope").GetComponent<RopeScript>().police;
-                        panicPoints = GameObject.Find("Rope").GetComponent<RopeScript>().police;
+                        panicPoints = GameObject.Find("Rope").GetComponent<RopeScript>().panic;
+                        gameObject.GetComponent<SpriteRenderer>().sprite = hostageTied;
 
                         pgbar.GetComponentInChildren<ProgressBarController>().policePoint = policePoints;
                         pgbar.GetComponentInChildren<ProgressBarController>().panicPoint = panicPoints;

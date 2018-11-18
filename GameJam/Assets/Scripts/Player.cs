@@ -6,11 +6,20 @@ public class Player : MonoBehaviour
 {
     public Animator animator;
     private float speed = .1f;
+   // [SerializeField] private AudioClip song;
+
+    public AudioSource sound;
+
+    private void Start()
+    {
+        //sound.Play();
+    }
 
     void FixedUpdate()
     {
+        
         Vector2 dir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-
+//D:\GameJamGitHub\HuuugeGameJam2018V2\GameJam\Assets\Scripts\Item Scripts\RopeScript.cs
         animator.SetFloat("Speed", dir.y);
         animator.SetFloat("SpeedX", dir.x);
 

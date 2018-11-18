@@ -11,9 +11,14 @@ public class Doors : MonoBehaviour {
     void Update () {
         if (trigger)
         {
-            if (Input.GetKeyDown(KeyCode.Z))
+            if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.X))
             {
-                SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
+                Debug.Log(SceneManager.GetActiveScene().name);
+                if (SceneManager.GetActiveScene().name=="Shop") SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
+                else if (SceneManager.GetActiveScene().name =="SampleScene")
+                {
+                    SceneManager.LoadScene("Shop", LoadSceneMode.Single);
+                }
             }
         }
 	}

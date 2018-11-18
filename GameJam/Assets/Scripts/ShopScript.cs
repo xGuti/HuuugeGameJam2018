@@ -5,9 +5,14 @@ using UnityEngine;
 public class ShopScript : MonoBehaviour {
 
     public int lvl;
-    public int price=5000;
+    public int price;
     public GameObject fastOption;
     private bool trigger = false;
+
+    private void Start()
+    {
+        price = 300;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         trigger = true;
@@ -17,13 +22,13 @@ public class ShopScript : MonoBehaviour {
     private void OnTriggerExit2D(Collider2D other)
     {
         trigger = false;
-        Destroy(GameObject.Find("FastOption(Clone)"));
+        Destroy(GameObject.Find("SlowOption(Clone)"));
     }
     private void Update()
     {
         if (trigger)
         {
-            if (Input.GetKeyDown(KeyCode.Z))
+            if (Input.GetKeyDown(KeyCode.Z)&&price<=GameObject.Find("CashController").GetComponent<CashController>().Cash)
             {
                 switch (gameObject.name)
                 {

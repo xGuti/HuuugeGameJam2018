@@ -27,9 +27,9 @@ public class GameController : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         //Get a component reference to the attached BoardManager script
-        barController = GameObject.Find("BarController").GetComponent<BarController>();
+        //barController = GameObject.Find("BarController").GetComponent<BarController>();
 
-        timeController = GameObject.Find("TimeController").GetComponent<TimeController>();
+        //timeController = GameObject.Find("TimeController").GetComponent<TimeController>();
 
     }
     void Start()

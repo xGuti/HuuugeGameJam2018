@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CashController : MonoBehaviour
 {
 
     private int cash;
-    public TextMesh text;
+    public Text text;
+    
 
     public int Cash
     {
@@ -27,7 +29,7 @@ public class CashController : MonoBehaviour
     }
     void Start()
     {
-        Cash = 1000000;
+        Cash = 1000;
     }
 
     // Update is called once per frame

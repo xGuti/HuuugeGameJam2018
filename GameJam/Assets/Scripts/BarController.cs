@@ -26,7 +26,7 @@ public class BarController : MonoBehaviour
     {
         timeController = GameObject.Find("TimeController").GetComponent<TimeController>();
         PanicValue = 0.5F;
-        PolicValue = 0.5F;
+        PolicValue = 0.1F;
         timer = new Timer();
         timer.Interval = 1000;
         timer.Elapsed += new ElapsedEventHandler(OnTimerElapsed);
@@ -35,7 +35,7 @@ public class BarController : MonoBehaviour
 
     private void OnTimerElapsed(object source, ElapsedEventArgs e)
     {
-        Debug.Log(PanicValue);
+       // Debug.Log(PanicValue);
         PanicValue -= panicInsrease;
         PolicValue += policeIncrease;
     }
@@ -138,12 +138,17 @@ public class BarController : MonoBehaviour
 
     }
 
+    public void StopTimer()
+    {
+        timer.Stop();
+    }
+
     void Update()
     {
         panicBar.value = PanicValue;
         policBar.value = PolicValue;
 
-        if (PolicValue >= 0.8 && setRun)
+        if (PolicValue >= 0.95 && setRun)
         {
             timeController.setRun();
             setRun = false;
@@ -151,9 +156,8 @@ public class BarController : MonoBehaviour
 
         if (PanicValue <= 0.3 || PanicValue >= 0.8)
         {
-            policeIncrease = 0.2f;
+            policeIncrease = 0.05f;
         };
 
     }
-
 }

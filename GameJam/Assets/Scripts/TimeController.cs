@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Timers;
 using System;
+using UnityEngine.UI;
 
 public class TimeController : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class TimeController : MonoBehaviour
     private Timer timer;
     private TimeSpan baseTime = new TimeSpan();
 
-    public TextMesh timeText;
+    public Text timeText;
 
     void Start()
     {

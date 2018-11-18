@@ -18,18 +18,18 @@ public class RopeScript : MonoBehaviour {
         switch (lvl)
         {
             case 1:
-                time = 25;
-                police = 0f;
+                time = 10;
+                police = -.1f;
                 panic = 0.05f;
                 break;
             case 2:
-                time = 10;
-                police = 0f;
+                time = 8;
+                police = -.15f;
                 panic = 0.1f;
                 break;
             case 3:
                 time = 5;
-                police = 0f;
+                police = -0.2f;
                 panic = 0.1f;
                 break;
         }
