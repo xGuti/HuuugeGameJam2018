@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212241846707824690}
   - component: {fileID: 61673258041477246}
   - component: {fileID: 114936589713486582}
+  - component: {fileID: 114411438715057324}
   m_Layer: 0
   m_Name: CashDesk
   m_TagString: Untagged
@@ -67,13 +68,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 1.5}
   m_EdgeRadius: 0
---- !u!114 &114936589713486582
+--- !u!114 &114411438715057324
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1703243900965920}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63d09dbea65247d47ac8c89ac7564b34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fastOption: {fileID: 1553118456245418, guid: cdef80f2f1573fc4daa0a01bb0f7a5ab, type: 2}
+  slowOption: {fileID: 1235426278320352, guid: 50f4d08352b57634a8b8fc3bea28181f, type: 2}
+--- !u!114 &114936589713486582
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1703243900965920}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f1bea1b50b16c14db47948539442039, type: 3}
   m_Name: 

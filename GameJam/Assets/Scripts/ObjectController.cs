@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HostageController : MonoBehaviour {
+public class ObjectController : MonoBehaviour
+{
 
-    private bool hostageTrigger;
+    private bool objectTrigger;
     private bool used;
 
     //public GameObject gameController;
@@ -13,23 +14,31 @@ public class HostageController : MonoBehaviour {
     public GameObject fastOption;
     public GameObject slowOption;
 
+    //public Component script;
+    public enum script
+    {
+        ICameraController,SafeController,HostageController,CashDeskController
+    };
+
     // Use this for initialization
     void Start()
     {
-        hostageTrigger = false;
+        objectTrigger = false;
         used = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (hostageTrigger == true&&used==false)
+        if (objectTrigger == true && used == false)
         {
 
 
             if (Input.GetKeyDown(KeyCode.Z))
             {
                 // fast reaction
+
+                
 
                 Debug.Log("Fast Option Has Been Chosen");
                 Destroy(GameObject.Find("FastOption(Clone)"));
@@ -42,17 +51,19 @@ public class HostageController : MonoBehaviour {
             else if (Input.GetKeyDown(KeyCode.X))
             {
                 //slow reaction
+
                 Debug.Log("Slow Option Has Been Chosen");
                 Destroy(GameObject.Find("FastOption(Clone)"));
                 Destroy(GameObject.Find("SlowOption(Clone)"));
                 used = true;
             }
+
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        hostageTrigger = true;
+        objectTrigger = true;
         if (used == false)
         {
             Instantiate(fastOption, new Vector2(this.gameObject.transform.position.x - this.gameObject.GetComponent<SpriteRenderer>().bounds.size.x / 2,
@@ -67,9 +78,9 @@ public class HostageController : MonoBehaviour {
     private void OnTriggerExit2D(Collider2D collision)
     {
         Debug.Log("exited");
+        objectTrigger = false;
         if (used == false)
         {
-            hostageTrigger = false;
             Destroy(GameObject.Find("FastOption(Clone)"));
             Destroy(GameObject.Find("SlowOption(Clone)"));
         }

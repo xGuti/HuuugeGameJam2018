@@ -125,6 +125,7 @@ public class BarController : MonoBehaviour
     void Update()
     {
         Console.WriteLine(PanicValue.ToString());
+        //Debug.Log(PanicValue.ToString());
         panicBar.value = PanicValue;
         policBar.value = PolicValue;
 

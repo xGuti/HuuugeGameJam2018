@@ -5,32 +5,50 @@ using UnityEngine;
 public class ICameraController : MonoBehaviour
 {
 
-    private bool iCameraTrigger;
+    private bool objectTrigger;
     private bool used;
+
+    private Transform target;
 
     //public GameObject gameController;
     GameController gameController;
 
     public GameObject fastOption;
     public GameObject slowOption;
+    public GameObject progressBar;
+
+    BarController barController;
+
+
 
     // Use this for initialization
     void Start()
     {
-        iCameraTrigger = false;
+        objectTrigger = false;
         used = false;
+        
+
+    }
+    private void Awake()
+    {
+        barController = GameObject.Find("BarController").GetComponent<BarController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (iCameraTrigger == true && used==false)
+        if (objectTrigger == true && used==false)
         {
             
   
             if (Input.GetKeyDown(KeyCode.Z))
             {
                 // fast reaction
+
+                barController.addPanic(0.1f);
+
+               // Instantiate(progressBar, this.gameController.transform.position,Quaternion.identity);
+
                 Debug.Log("Fast Option Has Been Chosen");
                 Destroy(GameObject.Find("FastOption(Clone)"));
                 Destroy(GameObject.Find("SlowOption(Clone)"));
@@ -42,17 +60,19 @@ public class ICameraController : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.X))
             {
                 //slow reaction
+
                 Debug.Log("Slow Option Has Been Chosen");
                 Destroy(GameObject.Find("FastOption(Clone)"));
                 Destroy(GameObject.Find("SlowOption(Clone)"));
                 used = true;
             }
+
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        iCameraTrigger = true;
+        objectTrigger = true;
         if (used == false)
         {
             Instantiate(fastOption, new Vector2(this.gameObject.transform.position.x - this.gameObject.GetComponent<SpriteRenderer>().bounds.size.x / 2,
@@ -67,11 +87,14 @@ public class ICameraController : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         Debug.Log("exited");
-        iCameraTrigger = false;
+        objectTrigger = false;
         if (used == false)
         {
             Destroy(GameObject.Find("FastOption(Clone)"));
             Destroy(GameObject.Find("SlowOption(Clone)"));
         }
     }
+
+    
+
 }

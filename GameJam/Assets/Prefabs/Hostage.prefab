@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212337391486499908}
   - component: {fileID: 61035435337743242}
   - component: {fileID: 114878599014375774}
+  - component: {fileID: 114561504414356304}
   m_Layer: 0
   m_Name: Hostage
   m_TagString: Untagged
@@ -67,13 +68,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 1.5}
   m_EdgeRadius: 0
---- !u!114 &114878599014375774
+--- !u!114 &114561504414356304
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1805977659924028}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63d09dbea65247d47ac8c89ac7564b34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fastOption: {fileID: 1553118456245418, guid: cdef80f2f1573fc4daa0a01bb0f7a5ab, type: 2}
+  slowOption: {fileID: 1235426278320352, guid: 50f4d08352b57634a8b8fc3bea28181f, type: 2}
+--- !u!114 &114878599014375774
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1805977659924028}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 493c1a867cf1ffa4da9f2d850b318f03, type: 3}
   m_Name: 
