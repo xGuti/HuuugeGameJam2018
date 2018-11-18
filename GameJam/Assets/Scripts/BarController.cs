@@ -35,6 +35,7 @@ public class BarController : MonoBehaviour
 
     private void OnTimerElapsed(object source, ElapsedEventArgs e)
     {
+        Debug.Log(PanicValue);
         PanicValue -= panicInsrease;
         PolicValue += policeIncrease;
     }
@@ -44,11 +45,12 @@ public class BarController : MonoBehaviour
         get { return panicValue; }
         set
         {
-            if (value >= 0 && value < 1)
-                panicValue = value;
+            if (value <= 0.0f)
+                panicValue = 0.0f;
+            else if (value > 1.0f)
+                panicValue = 1.0f;
+            else panicValue = value;
 
-            else if (value > 1)
-                panicValue = 1;
         }
     }
 
@@ -57,11 +59,11 @@ public class BarController : MonoBehaviour
         get { return policValue; }
         set
         {
-            if (value >= 0 && value < 1)
-                policValue = value;
-
-            else if (value > 1)
-                policValue = 1;
+            if (value <= 0.0f)
+                policValue = 0.0f;
+            else if (value > 1.0f)
+                policValue = 1.0f;
+            else policValue = value;
         }
     }
 
@@ -149,7 +151,7 @@ public class BarController : MonoBehaviour
 
         if (PanicValue <= 0.3 || PanicValue >= 0.8)
         {
-            panicInsrease = 0.2f;
+            policeIncrease = 0.2f;
         };
 
     }
