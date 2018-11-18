@@ -17,8 +17,8 @@ public class BarController : MonoBehaviour
 
     void Start()
     {
-        PanicValue = 0.5F;
-        PolicValue = 0.5F;
+        PanicValue = 0.2F;
+        PolicValue = 0F;
         timer = new Timer();
         timer.Interval = 1000;
         timer.Elapsed += new ElapsedEventHandler(OnTimerElapsed);

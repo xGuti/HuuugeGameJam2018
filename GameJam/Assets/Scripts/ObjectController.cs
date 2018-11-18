@@ -51,7 +51,7 @@ public class ObjectController : MonoBehaviour
                 pgbar = Instantiate(progressBar, transform.position, Quaternion.identity) as GameObject;
                 pgbar.transform.parent = gameObject.transform;
 
-               /* switch (gameObject.tag)
+                switch (gameObject.tag)
                 {
                     case "ICamera":
                         basicFastDuration = GameObject.Find("Gun").GetComponent<GunScript>().time;
@@ -92,7 +92,7 @@ public class ObjectController : MonoBehaviour
                         pgbar.GetComponentInChildren<ProgressBarController>().panicPoint = panicPoints;
                         pgbar.GetComponentInChildren<ProgressBarController>().time = basicFastDuration;
                         break;
-                }*/
+                }
                 
 
 
@@ -110,7 +110,7 @@ public class ObjectController : MonoBehaviour
                 pgbar = Instantiate(progressBar, transform.position, Quaternion.identity);
                 pgbar.transform.parent = gameObject.transform;
 
-               /* switch (gameObject.tag)
+                switch (gameObject.tag)
                 {
                     case "ICamera":
                         basicFastDuration = GameObject.Find("Cameq").GetComponent<CamEqScript>().time;
@@ -151,7 +151,7 @@ public class ObjectController : MonoBehaviour
                         pgbar.GetComponentInChildren<ProgressBarController>().panicPoint = panicPoints;
                         pgbar.GetComponentInChildren<ProgressBarController>().time = basicFastDuration;
                         break;
-                }*/
+                }
 
                 used = true;
             }
