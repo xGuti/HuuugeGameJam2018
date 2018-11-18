@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: walkBack
+  m_Name: WalkBack
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
