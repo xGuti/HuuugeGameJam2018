@@ -14,7 +14,9 @@ public class ObjectController : MonoBehaviour
     public GameObject fastOption;
     public GameObject slowOption;
     public GameObject progressBar;
-    public Component script;
+    public GameObject interactiveController;
+
+    private GameObject pgbar;
 
     // Use this for initialization
     void Start()
@@ -31,29 +33,62 @@ public class ObjectController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Z))
             {
                 // fast reaction
-                
-                
-
+                switch (gameObject.tag)
+                {
+                    case "ICamera":
+                        interactiveController.GetComponent<ICameraController>().fastReact();
+                        break;
+                    case "Hostage":
+                        interactiveController.GetComponent<HostageController>().fastReact();
+                        break;
+                    case "CashDesk":
+                        interactiveController.GetComponent<CashDeskController>().fastReact();
+                        break;
+                    case "Safe":
+                        interactiveController.GetComponent<SafeController>().fastReact();
+                        break;
+                }
                 Debug.Log("Fast Option Has Been Chosen");
                 Destroy(GameObject.Find("FastOption(Clone)"));
                 Destroy(GameObject.Find("SlowOption(Clone)"));
-                var pgbar = Instantiate(progressBar, transform.position, Quaternion.identity);
+                pgbar = Instantiate(progressBar, transform.position, Quaternion.identity);
                 pgbar.transform.parent = gameObject.transform;
                 used = true;
             }
             else if (Input.GetKeyDown(KeyCode.X))
             {
                 //slow reaction
-
+                switch (gameObject.tag)
+                {
+                    case "ICamera":
+                        interactiveController.GetComponent<ICameraController>().slowReact();
+                        break;
+                    case "Hostage":
+                        interactiveController.GetComponent<HostageController>().slowReact();
+                        break;
+                    case "CashDesk":
+                        interactiveController.GetComponent<CashDeskController>().slowReact();
+                        break;
+                    case "Safe":
+                        interactiveController.GetComponent<SafeController>().slowReact();
+                        break;
+                }
                 Debug.Log("Slow Option Has Been Chosen");
                 Destroy(GameObject.Find("FastOption(Clone)"));
                 Destroy(GameObject.Find("SlowOption(Clone)"));
-                var pgbar = Instantiate(progressBar, transform.position, Quaternion.identity);
+                pgbar = Instantiate(progressBar, transform.position, Quaternion.identity);
                 pgbar.transform.parent = gameObject.transform;
                 used = true;
             }
 
         }
+
+        else if (objectTrigger && (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.Z)))
+        {
+            //pgbar.GetComponentInChildren<ProgressBarScript>().startTimer();
+        }
+        else if (used == true) ;
+            //pgbar.GetComponentInChildren<ProgressBarScript>().pauseTimer();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

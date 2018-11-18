@@ -82,6 +82,7 @@ MonoBehaviour:
   slowOption: {fileID: 1235426278320352, guid: 50f4d08352b57634a8b8fc3bea28181f, type: 2}
   progressBar: {fileID: 1248917270930702, guid: 11dc13cb8d6fa304787ae1d6394590b0,
     type: 2}
+  interactiveController: {fileID: 0}
 --- !u!212 &212241846707824690
 SpriteRenderer:
   m_ObjectHideFlags: 1

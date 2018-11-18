@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour
     private int money;
     private BarController barController;
     private TimeController timeController;
+    public int drillLVL = 1, gunLVL = 1, tntLVL = 1, ropeLVL = 1, cameqLVL = 1, bagLVL = 1;
 
     // Use this for initialization
     void Awake()
