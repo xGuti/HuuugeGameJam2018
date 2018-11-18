@@ -20,11 +20,11 @@ public class ObjectController : MonoBehaviour
 
     private float basicFastDuration = 5;
     private float basicSlowDuration = 10;
-    private float playerTimeBonus=0;
+    private float playerTimeBonus = 0;
 
     private float policePoints;
     private float panicPoints;
-    private float money;
+    private int money;
 
     // Use this for initialization
     void Start()
@@ -41,8 +41,8 @@ public class ObjectController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Z))
             {
                 // fast reaction
-                
-                
+
+
 
                 Debug.Log("Fast Option Has Been Chosen");
                 Destroy(GameObject.Find("FastOption(Clone)"));
@@ -55,7 +55,7 @@ public class ObjectController : MonoBehaviour
                 {
                     case "ICamera":
                         basicFastDuration = GameObject.Find("Gun").GetComponent<GunScript>().time;
-                        policePoints = GameObject.Find("Gun").GetComponent<GunScript>().police*(-1);
+                        policePoints = GameObject.Find("Gun").GetComponent<GunScript>().police * (-1);
                         panicPoints = GameObject.Find("Gun").GetComponent<GunScript>().panic;
 
                         pgbar.GetComponentInChildren<ProgressBarController>().policePoint = policePoints;
@@ -66,7 +66,7 @@ public class ObjectController : MonoBehaviour
                     case "Hostage":
                         basicFastDuration = GameObject.Find("Gun").GetComponent<GunScript>().time;
                         policePoints = GameObject.Find("Gun").GetComponent<GunScript>().police;
-                        panicPoints = GameObject.Find("Gun").GetComponent<GunScript>().panic*1.5f;
+                        panicPoints = GameObject.Find("Gun").GetComponent<GunScript>().panic * 1.5f;
 
                         pgbar.GetComponentInChildren<ProgressBarController>().policePoint = policePoints;
                         pgbar.GetComponentInChildren<ProgressBarController>().panicPoint = panicPoints;
@@ -87,13 +87,15 @@ public class ObjectController : MonoBehaviour
                         basicFastDuration = GameObject.Find("TNT").GetComponent<TNTScript>().time;
                         policePoints = GameObject.Find("TNT").GetComponent<TNTScript>().police;
                         panicPoints = GameObject.Find("TNT").GetComponent<TNTScript>().panic;
+                        money = 3000;
 
                         pgbar.GetComponentInChildren<ProgressBarController>().policePoint = policePoints;
                         pgbar.GetComponentInChildren<ProgressBarController>().panicPoint = panicPoints;
                         pgbar.GetComponentInChildren<ProgressBarController>().time = basicFastDuration;
+                        pgbar.GetComponentInChildren<ProgressBarController>().money = money;
                         break;
                 }
-                
+
 
 
 
@@ -146,10 +148,12 @@ public class ObjectController : MonoBehaviour
                         basicFastDuration = GameObject.Find("Drill").GetComponent<DrillScript>().time;
                         policePoints = GameObject.Find("Drill").GetComponent<DrillScript>().police;
                         panicPoints = GameObject.Find("Drill").GetComponent<DrillScript>().panic;
+                        money = 3000;
 
                         pgbar.GetComponentInChildren<ProgressBarController>().policePoint = policePoints;
                         pgbar.GetComponentInChildren<ProgressBarController>().panicPoint = panicPoints;
                         pgbar.GetComponentInChildren<ProgressBarController>().time = basicFastDuration;
+                        pgbar.GetComponentInChildren<ProgressBarController>().money = money;
                         break;
                 }
 

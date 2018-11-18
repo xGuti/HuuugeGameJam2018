@@ -36,10 +36,10 @@ public class TimeController : MonoBehaviour
 
     public void decreaseTime(int seconds)
     {
-        baseTime -= TimeSpan.FromSeconds(seconds);
+        if (baseTime > TimeSpan.Zero)
+            baseTime -= TimeSpan.FromSeconds(seconds);
 
     }
-
 
     // Update is called once per frame
     void Update()
