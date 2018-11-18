@@ -2474,6 +2474,7 @@ GameObject:
   - component: {fileID: 877317228}
   - component: {fileID: 877317227}
   - component: {fileID: 877317226}
+  - component: {fileID: 877317231}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2492,6 +2493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93f9cdd6794fe824081a02bf6a159d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 877317231}
 --- !u!50 &877317227
 Rigidbody2D:
   serializedVersion: 4
@@ -2528,7 +2530,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 10.24, y: 16.87}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -2572,8 +2574,8 @@ SpriteRenderer:
   m_SortingLayerID: -1287771259
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5a1e8bce00fa550468018fcd18f78f0c, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 6baaf6cfbe217d642b9bdce9eedffb07, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2590,13 +2592,31 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 877317225}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.23357368}
-  m_LocalScale: {x: 0.11111112, y: 0.11111112, z: 0.101553775}
+  m_LocalPosition: {x: 0.232, y: -0.807, z: -0.23357368}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 0.101553775}
   m_Children:
   - {fileID: 519420032}
   m_Father: {fileID: 1938717053}
   m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &877317231
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 877317225}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ab0135d4eee472c4f8c217f9aeb74a19, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &971452115 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1999678424856184, guid: 9cb2041e55a193f40969a3cc7ce6e0b6,
