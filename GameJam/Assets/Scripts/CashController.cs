@@ -27,7 +27,7 @@ public class CashController : MonoBehaviour
     }
     void Start()
     {
-        Cash = 0;
+        Cash = 1000000;
     }
 
     // Update is called once per frame

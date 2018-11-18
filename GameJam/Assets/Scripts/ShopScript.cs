@@ -48,6 +48,7 @@ public class ShopScript : MonoBehaviour {
 
 
                 }
+                GameObject.Find("CashController").GetComponent<CashController>().AddCash(-price);
                 Destroy(gameObject);
             }
         }
