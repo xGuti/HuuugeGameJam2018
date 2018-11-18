@@ -160,23 +160,29 @@ public class ObjectController : MonoBehaviour
 
         if (pgbar && objectTrigger == true && Input.GetKeyUp(KeyCode.Z))
         {
+            gameObject.GetComponentInChildren<ParticleSystem>().Pause();
+            gameObject.GetComponentInChildren<ParticleSystem>().Clear();
             pgbar.GetComponentInChildren<ProgressBarController>().triggered = false;
             pgbar.GetComponentInChildren<ProgressBarController>().stop = true;
         }
         else if (pgbar && objectTrigger == true && Input.GetKeyUp(KeyCode.X))
         {
+            gameObject.GetComponentInChildren<ParticleSystem>().Pause();
+            gameObject.GetComponentInChildren<ParticleSystem>().Clear();
             pgbar.GetComponentInChildren<ProgressBarController>().triggered = false;
             pgbar.GetComponentInChildren<ProgressBarController>().stop = true;
         }
 
         else if (pgbar && objectTrigger == true && Input.GetKeyDown(KeyCode.Z))
         {
+            gameObject.GetComponentInChildren<ParticleSystem>().Play();
             pgbar.GetComponentInChildren<ProgressBarController>().triggered = true;
             pgbar.GetComponentInChildren<ProgressBarController>().stop = false;
             pgbar.GetComponentInChildren<ProgressBarController>().release = true;
         }
         else if (pgbar && objectTrigger == true && Input.GetKeyDown(KeyCode.X))
         {
+            gameObject.GetComponentInChildren<ParticleSystem>().Play();
             pgbar.GetComponentInChildren<ProgressBarController>().triggered = true;
             pgbar.GetComponentInChildren<ProgressBarController>().stop = false;
             pgbar.GetComponentInChildren<ProgressBarController>().release = true;
