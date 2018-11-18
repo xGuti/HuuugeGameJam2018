@@ -41,6 +41,11 @@ public class TimeController : MonoBehaviour
 
     }
 
+    public void setRun()
+    {
+        baseTime = TimeSpan.FromSeconds(30);
+    }
+
     // Update is called once per frame
     void Update()
     {

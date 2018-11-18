@@ -12,13 +12,21 @@ public class BarController : MonoBehaviour
     public Slider panicBar;
     public Slider policBar;
 
+    private bool setRun = true;
+
+    private float panicInsrease = 0.01f;
+    private float policeIncrease = 0.01f;
+
+    private TimeController timeController;
+
     Timer timer;
 
 
     void Start()
     {
-        PanicValue = 0.2F;
-        PolicValue = 0F;
+        timeController = GameObject.Find("TimeController").GetComponent<TimeController>();
+        PanicValue = 0.5F;
+        PolicValue = 0.5F;
         timer = new Timer();
         timer.Interval = 1000;
         timer.Elapsed += new ElapsedEventHandler(OnTimerElapsed);
@@ -27,8 +35,8 @@ public class BarController : MonoBehaviour
 
     private void OnTimerElapsed(object source, ElapsedEventArgs e)
     {
-        PanicValue += 0.01F;
-        PolicValue += 0.01F;
+        PanicValue -= panicInsrease;
+        PolicValue += policeIncrease;
     }
 
     public float PanicValue
@@ -36,8 +44,11 @@ public class BarController : MonoBehaviour
         get { return panicValue; }
         set
         {
-            if (value >= 0 && value <= 1)
+            if (value >= 0 && value < 1)
                 panicValue = value;
+
+            else if (value > 1)
+                panicValue = 1;
         }
     }
 
@@ -46,8 +57,11 @@ public class BarController : MonoBehaviour
         get { return policValue; }
         set
         {
-            if (value >= 0 && value <= 1)
+            if (value >= 0 && value < 1)
                 policValue = value;
+
+            else if (value > 1)
+                policValue = 1;
         }
     }
 
@@ -124,14 +138,20 @@ public class BarController : MonoBehaviour
 
     void Update()
     {
-        Console.WriteLine(PanicValue.ToString());
-        //Debug.Log(PanicValue.ToString());
         panicBar.value = PanicValue;
         policBar.value = PolicValue;
 
+        if (PolicValue >= 0.8 && setRun)
+        {
+            timeController.setRun();
+            setRun = false;
+        }
+
+        if (PanicValue <= 0.3 || PanicValue >= 0.8)
+        {
+            panicInsrease = 0.2f;
+        };
+
     }
-
-
-
 
 }
