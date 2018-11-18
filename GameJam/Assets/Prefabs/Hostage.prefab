@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114561504414356304}
   m_Layer: 0
   m_Name: Hostage
-  m_TagString: Untagged
+  m_TagString: Hostage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82,6 +82,7 @@ MonoBehaviour:
   slowOption: {fileID: 1235426278320352, guid: 50f4d08352b57634a8b8fc3bea28181f, type: 2}
   progressBar: {fileID: 1248917270930702, guid: 11dc13cb8d6fa304787ae1d6394590b0,
     type: 2}
+  script: {fileID: 0}
 --- !u!212 &212337391486499908
 SpriteRenderer:
   m_ObjectHideFlags: 1

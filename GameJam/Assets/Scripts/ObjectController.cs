@@ -14,7 +14,17 @@ public class ObjectController : MonoBehaviour
     public GameObject fastOption;
     public GameObject slowOption;
     public GameObject progressBar;
+    private GameObject pgbar;
+
     public Component script;
+
+    private float basicFastDuration = 5;
+    private float basicSlowDuration = 10;
+    private float playerTimeBonus=0;
+
+    private float policePoints;
+    private float panicPoints;
+    private float money;
 
     // Use this for initialization
     void Start()
@@ -37,8 +47,56 @@ public class ObjectController : MonoBehaviour
                 Debug.Log("Fast Option Has Been Chosen");
                 Destroy(GameObject.Find("FastOption(Clone)"));
                 Destroy(GameObject.Find("SlowOption(Clone)"));
-                var pgbar = Instantiate(progressBar, transform.position, Quaternion.identity);
+
+                pgbar = Instantiate(progressBar, transform.position, Quaternion.identity) as GameObject;
                 pgbar.transform.parent = gameObject.transform;
+
+                switch (gameObject.tag)
+                {
+                    case "ICamera":
+                        basicFastDuration = 5;
+                        policePoints = -0.3f;
+                        panicPoints = 0.3f;
+
+                        pgbar.GetComponentInChildren<ProgressBarController>().policePoint = policePoints;
+                        pgbar.GetComponentInChildren<ProgressBarController>().panicPoint = panicPoints;
+                        pgbar.GetComponentInChildren<ProgressBarController>().duration = basicFastDuration;
+
+                        break;
+                    case "Hostage":
+                        basicFastDuration = 5;
+                        policePoints = -0.3f;
+                        panicPoints = 0.3f;
+
+                        pgbar.GetComponentInChildren<ProgressBarController>().policePoint = policePoints;
+                        pgbar.GetComponentInChildren<ProgressBarController>().panicPoint = panicPoints;
+                        pgbar.GetComponentInChildren<ProgressBarController>().duration = basicFastDuration;
+                        break;
+                    case "CashDesk":
+                        basicFastDuration = 5;
+                        policePoints = -0.3f;
+                        panicPoints = 0.3f;
+                        money = 5;
+
+                        pgbar.GetComponentInChildren<ProgressBarController>().policePoint = policePoints;
+                        pgbar.GetComponentInChildren<ProgressBarController>().panicPoint = panicPoints;
+                        pgbar.GetComponentInChildren<ProgressBarController>().duration = basicFastDuration;
+                        break;
+                    case "Safe":
+                        basicFastDuration = 5;
+                        policePoints = -0.3f;
+                        panicPoints = 0.3f;
+
+                        pgbar.GetComponentInChildren<ProgressBarController>().policePoint = policePoints;
+                        pgbar.GetComponentInChildren<ProgressBarController>().panicPoint = panicPoints;
+                        pgbar.GetComponentInChildren<ProgressBarController>().duration = basicFastDuration;
+                        break;
+                }
+                
+
+
+
+
                 used = true;
             }
             else if (Input.GetKeyDown(KeyCode.X))
@@ -48,11 +106,37 @@ public class ObjectController : MonoBehaviour
                 Debug.Log("Slow Option Has Been Chosen");
                 Destroy(GameObject.Find("FastOption(Clone)"));
                 Destroy(GameObject.Find("SlowOption(Clone)"));
-                var pgbar = Instantiate(progressBar, transform.position, Quaternion.identity);
+                pgbar = Instantiate(progressBar, transform.position, Quaternion.identity);
                 pgbar.transform.parent = gameObject.transform;
+                pgbar.GetComponentInChildren<ProgressBarController>().duration = basicSlowDuration - playerTimeBonus;
+
                 used = true;
             }
 
+        }
+
+        if (pgbar && objectTrigger == true && Input.GetKeyUp(KeyCode.Z))
+        {
+            pgbar.GetComponentInChildren<ProgressBarController>().triggered = false;
+            pgbar.GetComponentInChildren<ProgressBarController>().stop = true;
+        }
+        else if (pgbar && objectTrigger == true && Input.GetKeyUp(KeyCode.X))
+        {
+            pgbar.GetComponentInChildren<ProgressBarController>().triggered = false;
+            pgbar.GetComponentInChildren<ProgressBarController>().stop = true;
+        }
+
+        else if (pgbar && objectTrigger == true && Input.GetKeyDown(KeyCode.Z))
+        {
+            pgbar.GetComponentInChildren<ProgressBarController>().triggered = true;
+            pgbar.GetComponentInChildren<ProgressBarController>().stop = false;
+            pgbar.GetComponentInChildren<ProgressBarController>().release = true;
+        }
+        else if (pgbar && objectTrigger == true && Input.GetKeyDown(KeyCode.X))
+        {
+            pgbar.GetComponentInChildren<ProgressBarController>().triggered = true;
+            pgbar.GetComponentInChildren<ProgressBarController>().stop = false;
+            pgbar.GetComponentInChildren<ProgressBarController>().release = true;
         }
     }
 
@@ -70,10 +154,19 @@ public class ObjectController : MonoBehaviour
 
     }
 
+
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         Debug.Log("exited");
         objectTrigger = false;
+
+        if (pgbar)
+        {
+            pgbar.GetComponentInChildren<ProgressBarController>().triggered = false;
+            pgbar.GetComponentInChildren<ProgressBarController>().stop = true;
+        }
+
         if (used == false)
         {
             Destroy(GameObject.Find("FastOption(Clone)"));

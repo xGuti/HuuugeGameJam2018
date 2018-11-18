@@ -5,12 +5,12 @@ using UnityEngine;
 public class ICameraController : MonoBehaviour
 {
 
-    public void fastReact()
+    public void FastReact()
     {
 
     }
 
-    public void slowReact()
+    public void SlowReact()
     {
 
     }
